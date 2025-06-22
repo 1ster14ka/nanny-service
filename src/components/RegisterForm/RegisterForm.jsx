@@ -1,33 +1,12 @@
 import css from "./RegisterForm.module.css";
+import { IoMdClose } from "react-icons/io";
 
-const RegisterForm = () => {
+const RegisterForm = ({ onClose }) => {
   return (
     <div className={css.registr}>
       <div className={css.btnCloseModal}>
         <button className={css.svgClose}>
-          {/* <svg
-            className={css.svgClose}
-            width="32"
-            height="32"
-            viewBox="0 0 32 32"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M24 8L8 24"
-              stroke="#11101C"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M8 8L24 24"
-              stroke="#11101C"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg> */}
+          <IoMdClose className={css.btnCloseIcon} onClick={onClose} />
         </button>
       </div>
       <div className={css.wrappRegistration}>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import css from "./Header.module.css";
 import Modal from "../Modal/Modal";
 import RegisterForm from "../RegisterForm/RegisterForm";
+import LoginForm from "../LoginForm/LoginForm";
 
 const Header = () => {
   const [typeModal, setTypeModal] = useState(null);

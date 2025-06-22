@@ -5,6 +5,7 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
 import { useState } from "react";
+import { login } from "../../js/login";
 
 const LoginForm = ({ onClose }) => {
   const [openEye, setOpenEye] = useState(false);
@@ -21,7 +22,8 @@ const LoginForm = ({ onClose }) => {
   });
 
   const handleSubmit = (values, actions) => {
-    console.log(values);
+    console.log(values.email);
+    login(values.email, values.password);
     actions.resetForm();
   };
   return (

@@ -117,11 +117,6 @@
   pointer-events: auto;
 }
 
-.login,
-.registr {
-  display: none;
-}
-
 /* .wrapp-registration {
   display: flex;
   flex-direction: column;
@@ -186,21 +181,6 @@
   cursor: pointer;
 } */
 
-.eye {
-  display: none;
-}
-
-.eye-open {
-  display: block;
-}
-
-.toggle-password.active .eye-open {
-  display: none;
-}
-
-.toggle-password.active .eye-closed {
-  display: block;
-}
 /* .btnSubmit {
   border-radius: 30px;
   padding: 16px 190px;
@@ -221,24 +201,6 @@
   top: 20px;
 } */
 
-.svg-close {
-  border: none;
-}
-
-.out {
-  display: none;
-}
-
-.user-image {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: #fbfbfb;
-  border-radius: 10px;
-}
-
 .userName {
   font-weight: 500;
   font-size: 18px;
@@ -247,20 +209,40 @@
   color: #fbfbfb;
 }
 
-.btn-logout {
+.listUser {
+  display: flex;
+  gap: 24px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 111%;
+  letter-spacing: -0.01em;
+}
+
+.wrappUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  border-radius: 10px;
+  width: 40px;
+  height: 40px;
+  background: #fbfbfb;
+}
+
+.iconUser {
+  fill: #f03f3b;
+}
+.itemUser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.btnUser {
   border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 30px;
   padding: 14px 39px;
-  background-color: transparent;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 125%;
-  letter-spacing: -0.01em;
-  color: #fbfbfb;
-}
-
-.header-user {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  /* width: 134px;
+  height: 48px; */
 }

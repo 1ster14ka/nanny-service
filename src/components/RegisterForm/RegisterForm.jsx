@@ -34,7 +34,7 @@ const RegisterForm = ({ onClose }) => {
       actions.resetForm();
       onClose();
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       actions.setStatus(error.message);
     }
   };

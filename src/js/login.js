@@ -10,17 +10,17 @@ import { auth } from "./firebase";
 //   list.style.display = "none";
 // }
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log("👤 Текущий пользователь:", user);
-    // updateUserUI(user);
-  } else {
-    // listUser.style.display = "none";
-    // list.style.display = "flex";
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     console.log("👤 Текущий пользователь:", user);
+//     // updateUserUI(user);
+//   } else {
+//     // listUser.style.display = "none";
+//     // list.style.display = "flex";
 
-    console.log("🔒 Пользователь вышел");
-  }
-});
+//     console.log("🔒 Пользователь вышел");
+//   }
+// });
 
 async function login(email, password) {
   try {
@@ -38,6 +38,7 @@ async function login(email, password) {
     // const errorCode = error.code;
     // const errorMessage = error.message;
     console.error("Login error:", error.code, error.message);
+    throw new Error(error.message);
   }
 }
 

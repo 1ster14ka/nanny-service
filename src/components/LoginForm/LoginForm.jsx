@@ -21,10 +21,17 @@ const LoginForm = ({ onClose }) => {
       .required("Required"),
   });
 
-  const handleSubmit = (values, actions) => {
-    console.log(values.email);
-    login(values.email, values.password);
-    actions.resetForm();
+  const handleSubmit = async (values, actions) => {
+    try {
+      await login(values.email, values.password);
+      actions.resetForm();
+      onClose();
+    } catch (error) {
+      actions.setStatus("Invalid email or password.");
+    }
+    // console.log(values.email);
+    // login(values.email, values.password);
+    // actions.resetForm();
   };
   return (
     <div className="login">
@@ -47,51 +54,55 @@ const LoginForm = ({ onClose }) => {
         onSubmit={handleSubmit}
         validationSchema={FeedbackSchema}
       >
-        <Form className={css.form}>
-          <Field
-            type="email"
-            name="email"
-            className={css.inputModal}
-            placeholder="Email"
-          />
-          <ErrorMessage
-            name="email"
-            component="div"
-            className={css.errorMessage}
-          />
-          <div className={css.passwordWrapper}>
-            <div className={css.test}>
-              <Field
-                type={openEye ? "text" : "password"}
-                name="password"
-                className={css.inputModal}
-                placeholder="Password"
-              />
-
-              <button
-                type="button"
-                className={css.togglePassword}
-                onClick={() => {
-                  setOpenEye(!openEye);
-                }}
-              >
-                {!openEye ? (
-                  <FaRegEyeSlash className={css.eyeIcon} />
-                ) : (
-                  <FaRegEye className={css.eyeIcon} />
-                )}
-              </button>
-            </div>
+        {({ status }) => (
+          <Form className={css.form}>
+            <Field
+              type="email"
+              name="email"
+              className={css.inputModal}
+              placeholder="Email"
+            />
             <ErrorMessage
-              name="password"
+              name="email"
               component="div"
               className={css.errorMessage}
             />
-          </div>
-          <button type="submit" className={css.btnSubmit}>
-            Sign Up
-          </button>
-        </Form>
+            <div className={css.passwordWrapper}>
+              <div className={css.test}>
+                <Field
+                  type={openEye ? "text" : "password"}
+                  name="password"
+                  className={css.inputModal}
+                  placeholder="Password"
+                />
+
+                <button
+                  type="button"
+                  className={css.togglePassword}
+                  onClick={() => {
+                    setOpenEye(!openEye);
+                  }}
+                >
+                  {!openEye ? (
+                    <FaRegEyeSlash className={css.eyeIcon} />
+                  ) : (
+                    <FaRegEye className={css.eyeIcon} />
+                  )}
+                </button>
+              </div>
+              <ErrorMessage
+                name="password"
+                component="div"
+                className={css.errorMessage}
+              />
+            </div>
+            {status && <div className={css.errorMessage}>{status}</div>}
+
+            <button type="submit" className={css.btnSubmit}>
+              Sign Up
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
   );

@@ -8,6 +8,7 @@ import LoginForm from "../LoginForm/LoginForm";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../js/firebase";
 import { logout } from "../../js/logout";
+import { NavLink, useLocation } from "react-router-dom";
 
 const Header = () => {
   const [typeModal, setTypeModal] = useState(null);
@@ -16,6 +17,9 @@ const Header = () => {
   const handleClose = () => setTypeModal(null);
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState(null);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+  // console.log(location.pathname);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -37,17 +41,18 @@ const Header = () => {
 
   return (
     <>
-      <header className={css.header}>
+      <header className={isHome ? css.header : css.headerNanny}>
         <div className={css.containerHead}>
-          <a href="/" className={css.logo}>
+          {/* <NavLink to="/" className={css.logo}>
             Nanny.Services
-          </a>
+          </NavLink> */}
 
           <nav className={css.navigation}>
-            <ul className={css.headerList}>
-              <li>Home</li>
-              <li>Nannies</li>
-            </ul>
+            <div className={css.headerList}>
+              <NavLink to="/">Home</NavLink>
+              <NavLink to="/nannies">Nannies</NavLink>
+              {user && <NavLink to="favorites">Favorites</NavLink>}
+            </div>
 
             {!user ? (
               <ul className={`${css.headerList} ${css.registration}`}>

@@ -8,12 +8,14 @@
     url("/src/assets/background-img.jpg");
   background-size: cover;
   /* background-size: 100% 100%, 50% 100%; */
-  background-position: left top, right top;
+  /* background-position: left top, right top; */
+  background-position: center;
   background-repeat: no-repeat;
   min-width: 300px;
   max-width: 768px;
   /* width: 1376px; */
-  height: 500px;
+  /* height: 700px; */
+  height: 100vh;
   border-radius: 30px;
   position: relative;
   padding: 20px;
@@ -88,9 +90,55 @@
 .iconCheckMark {
 }
 
-@media (min-width: 500px) {
+@media (min-width: 768px) {
   .mainContainer {
+    max-width: 1376px;
+    background-size: 100% 100%, 50% 100%;
+    background-position: left top, right top;
     /* background-position: top center; */
-    background-size: contain;
+    /* background-size: contain; */
+  }
+  .wrappTitle {
+    max-width: 400px;
+    /* padding-left: 100px; */
+    /* justify-content: center;
+    align-items: center; */
+  }
+}
+
+@media (min-width: 1280px) {
+  .wrappTitle {
+    max-width: 517px;
+    padding-left: 96px;
+    gap: 28px;
+  }
+  .title {
+    font-size: 50px;
+  }
+  .subtitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 107%;
+    letter-spacing: -0.02em;
+  }
+  .wrappInfo {
+    width: 284px;
+    height: 118px;
+    gap: 16px;
+  }
+
+  .wrappIconCheckMark {
+    border-radius: 13px;
+    width: 54px;
+    height: 54px;
+  }
+  .infoText {
+    font-size: 16px;
+  }
+  .btnNanny {
+    /* border-radius: 30px; */
+    /* padding: 18px 50px; */
+    width: 230px;
+    height: 60px;
   }
 }

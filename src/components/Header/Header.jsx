@@ -20,7 +20,13 @@ const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === "/";
   // console.log(location.pathname);
+  const root = document.querySelector("#root");
 
+  if (!isHome) {
+    root.classList.add("pageNanny");
+  } else {
+    root.classList.remove("pageNanny");
+  }
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -43,9 +49,9 @@ const Header = () => {
     <>
       <header className={isHome ? css.header : css.headerNanny}>
         <div className={css.containerHead}>
-          {/* <NavLink to="/" className={css.logo}>
+          <NavLink to="/" className={css.logo}>
             Nanny.Services
-          </NavLink> */}
+          </NavLink>
 
           <nav className={css.navigation}>
             <div className={css.headerList}>

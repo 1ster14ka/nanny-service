@@ -1,0 +1,157 @@
+.container {
+  padding-top: 150px;
+  color: black;
+}
+ul.listNanny {
+  padding: 20px;
+}
+
+.cardNanny {
+  background: #fbfbfb;
+  padding: 20px;
+}
+
+.textNanny {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #8a8a89;
+}
+
+.wrappNannyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.nameNanny {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 100%;
+  color: #11101c;
+}
+
+.characteristicNanny {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #8a8a89;
+}
+
+.characteristicNanny:first-child span {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+}
+.characteristicNanny span {
+  color: #11101c;
+}
+.aboutNanny {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(17, 16, 28, 0.5);
+}
+.btnReadMore {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #11101c;
+}
+
+.wrappImg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 230px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.wrappImg img {
+  border: 2px solid rgba(240, 63, 59, 0.2);
+  border-radius: 30px;
+  width: 200px;
+  padding: 15px;
+}
+
+.dot {
+  position: absolute;
+  top: 8px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  fill: #38cd3e;
+}
+
+.wrappLocation {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wrappCharacteristicNanny {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wrappLocation p svg {
+  margin-right: 5px;
+}
+.wrappLocation p span {
+  color: #38cd3e;
+}
+
+.wrappLocation p {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #11101c;
+}
+
+.iconRating {
+  fill: #ffc531;
+}
+
+@media (min-width: 768px) {
+  .cardNanny {
+    display: flex;
+    gap: 30px;
+  }
+  .wrappImg {
+    display: block;
+    width: 100%;
+    max-width: 200px;
+  }
+  .imgNanny {
+    /* min-width: 200px;
+    max-width: 200px; */
+  }
+  .wrappCharacteristicNanny {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .characteristicNanny {
+    background: #f3f3f3;
+    border-radius: 24px;
+    padding: 8px 16px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .cardNanny {
+    gap: 24px;
+  }
+  .wrappImg {
+    max-width: 120px;
+  }
+
+  ul.listNanny {
+    padding: 0 128px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}

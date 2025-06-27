@@ -10,10 +10,13 @@ const HomePage = () => {
         <h2 className={css.subtitle}>
           Find Babysitters Online for All Occasions
         </h2>
+        <button className={css.btnNanny}>
+          Get started <MdArrowOutward className={css.iconArrow} />
+        </button>
       </div>
-      <button className={css.btnNanny}>
+      {/* <button className={css.btnNanny}>
         Get started <MdArrowOutward className={css.iconArrow} />
-      </button>
+      </button> */}
 
       <div className={css.wrappInfo}>
         <div className={css.wrappIconCheckMark}>

@@ -3,6 +3,9 @@
   color: black;
 }
 ul.listNanny {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   padding: 20px;
 }
 
@@ -19,6 +22,7 @@ ul.listNanny {
 }
 
 .wrappNannyInfo {
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -51,6 +55,23 @@ ul.listNanny {
   line-height: 125%;
   color: rgba(17, 16, 28, 0.5);
 }
+.btnMakeForm {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  text-decoration-skip-ink: none;
+  color: #11101c;
+  background: #f03f3b;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+  border-radius: 30px;
+  width: 215px;
+  height: 48px;
+}
+
 .btnReadMore {
   font-weight: 500;
   font-size: 16px;
@@ -62,6 +83,7 @@ ul.listNanny {
 
 .wrappImg {
   position: relative;
+  flex: 0 0 200px;
   display: flex;
   justify-content: center;
   width: 230px;
@@ -105,6 +127,9 @@ ul.listNanny {
 }
 
 .wrappLocation p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
@@ -113,6 +138,57 @@ ul.listNanny {
 
 .iconRating {
   fill: #ffc531;
+}
+
+.btnLoadMore {
+  background: #f03f3b;
+  border-radius: 30px;
+  /* padding: 14px 40px; */
+  width: 159px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 30px auto 0;
+}
+
+.reviewItem {
+  margin-bottom: 25px;
+}
+
+.reviewHeader {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.avatarPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  width: 44px;
+  height: 44px;
+  background: rgba(240, 63, 59, 0.2);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 100%;
+  color: #f03f3b;
+}
+
+.reviewerName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  color: #11101c;
+  margin-bottom: 4px;
+}
+
+.reviewText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(17, 16, 28, 0.5);
 }
 
 @media (min-width: 768px) {
@@ -133,6 +209,9 @@ ul.listNanny {
     flex-direction: row;
     flex-wrap: wrap;
   }
+  .dot {
+    right: 10px;
+  }
   .characteristicNanny {
     background: #f3f3f3;
     border-radius: 24px;
@@ -147,11 +226,16 @@ ul.listNanny {
   .wrappImg {
     max-width: 120px;
   }
+  .dot {
+    top: 12px;
+    width: 20px;
+    height: 20px;
+  }
 
   ul.listNanny {
     padding: 0 128px;
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     gap: 32px;
   }
 }

@@ -1,11 +1,9 @@
-/* 1. Box sizing */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* 2. Remove default margin */
 body,
 h1,
 h2,
@@ -21,7 +19,6 @@ dd {
   margin: 0;
 }
 
-/* 3. Remove list styles on ul, ol elements with a class */
 ul[class],
 ol[class] {
   list-style: none;
@@ -29,7 +26,6 @@ ol[class] {
   margin: 0;
 }
 
-/* 4. Set core body defaults */
 body {
   min-height: 100vh;
   line-height: 1.5;
@@ -40,27 +36,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* 5. Remove default padding */
 ul,
 ol {
   list-style-type: none;
   padding: 0;
 }
 
-/* 6. Anchor link defaults */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* 7. Make images easier to work with */
 img,
 picture {
   max-width: 100%;
   display: block;
 }
 
-/* 8. Inherit fonts for inputs and buttons */
 input,
 button,
 textarea,
@@ -72,7 +64,6 @@ select {
   background: none;
 }
 
-/* 9. Remove all borders and outlines unless focused */
 button,
 input,
 select,
@@ -82,13 +73,11 @@ textarea {
   background: none;
 }
 
-/* 10. Remove default button styling */
 button {
   background: none;
   cursor: pointer;
 }
 
-/* 11. Normalize headings */
 h1,
 h2,
 h3,
@@ -99,13 +88,11 @@ h6 {
   font-weight: normal;
 }
 
-/* 12. Tables reset */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* 13. Remove quotes from blockquotes */
 blockquote::before,
 blockquote::after,
 q::before,
@@ -113,14 +100,12 @@ q::after {
   content: "";
 }
 
-/* 14. Disable default fieldset and legend styles */
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/* 15. Set media to display block by default */
 video,
 audio,
 canvas,

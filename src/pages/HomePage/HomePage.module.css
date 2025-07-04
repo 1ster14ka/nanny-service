@@ -90,6 +90,7 @@
 @media (min-width: 768px) {
   .mainContainer {
     max-width: 1376px;
+    max-height: 736px;
     background-size: 100% 100%, 50% 100%;
     background-position: left top, right top;
   }

@@ -4,11 +4,17 @@ import "./index.css";
 import "./reset.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { ModalProvider } from "./js/ModalContext.jsx";
+import { AuthProvider } from "./hooks/auth.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <StrictMode>
-      <App />
+      <AuthProvider>
+        <ModalProvider>
+          <App />
+        </ModalProvider>
+      </AuthProvider>
     </StrictMode>
   </BrowserRouter>
 );

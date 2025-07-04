@@ -1,0 +1,66 @@
+.container {
+  padding: 20px;
+}
+
+.list {
+  list-style: none;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.wrappInfo {
+  margin-top: 10px;
+}
+
+.name {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.text {
+  font-size: 0.95rem;
+  margin: 4px 0;
+}
+
+.about {
+  font-size: 0.85rem;
+  margin: 8px 0;
+}
+
+.removeBtn {
+  background-color: #ffdddd;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.iconHeart {
+  color: red;
+  font-size: 18px;
+}
+
+.emptyMessage {
+  padding: 40px;
+  text-align: center;
+  font-size: 1.2rem;
+}

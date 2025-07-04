@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import css from "./Modal.module.css";
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, position = "center" }) => {
   useEffect(() => {
     const handleKeydown = (e) => {
       if (e.key === "Escape") {
@@ -26,7 +26,7 @@ const Modal = ({ isOpen, onClose, children }) => {
       className={`${css.backdrop} ${isOpen ? css["is-open"] : ""}`}
       onClick={handleBackdropClick}
     >
-      <div className={css.modal}>{children}</div>
+      <div className={`${css.modal} ${css[position]}`}>{children}</div>
     </div>
   );
 };

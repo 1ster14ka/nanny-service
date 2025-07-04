@@ -30,11 +30,16 @@ const initialValues = {
   meetingTime: "",
 };
 
-const NannyHireForm = ({ naniesInfo, onClose }) => {
+const NannyHireForm = ({ naniesInfo = [], onClose }) => {
+  console.log("YEs");
+
   const handleSubmit = (values, { resetForm }) => {
     console.log("Form values:", values);
     resetForm();
+    onClose();
   };
+
+  const hasNannyInfo = naniesInfo && naniesInfo.length >= 2;
   return (
     <div className={css.containerForm}>
       <button className={css.svgClose} onClick={onClose}>
@@ -46,13 +51,15 @@ const NannyHireForm = ({ naniesInfo, onClose }) => {
         creating a safe and comfortable environment. Fill out the form below so
         we can match you with the perfect care partner.
       </h3>
-      <div className={css.wrappNany}>
-        <img src={naniesInfo[0]} alt={naniesInfo[1]} className={css.img} />
-        <div>
-          <p className={css.nany}>Nanny</p>
-          <p className={css.nanyName}>{naniesInfo[1]}</p>
+      {hasNannyInfo && (
+        <div className={css.wrappNany}>
+          <img src={naniesInfo[0]} alt={naniesInfo[1]} className={css.img} />
+          <div>
+            <p className={css.nany}>Nanny</p>
+            <p className={css.nanyName}>{naniesInfo[1]}</p>
+          </div>
         </div>
-      </div>
+      )}
       <div className={css.formContainer}>
         <Formik
           initialValues={initialValues}

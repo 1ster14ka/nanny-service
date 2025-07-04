@@ -1,25 +1,19 @@
 import { useEffect, useState } from "react";
 import { FaUserAlt } from "react-icons/fa";
 import css from "./Header.module.css";
-import Modal from "../Modal/Modal";
-import RegisterForm from "../RegisterForm/RegisterForm";
-import LoginForm from "../LoginForm/LoginForm";
-// import Logout from "../Logout/Logout";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../js/firebase";
 import { logout } from "../../js/logout";
 import { NavLink, useLocation } from "react-router-dom";
+import { useModal } from "../../js/ModalContext.jsx";
 
 const Header = () => {
-  const [typeModal, setTypeModal] = useState(null);
+  const { handleOpen } = useModal();
 
-  const handleOpen = (type) => setTypeModal(type);
-  const handleClose = () => setTypeModal(null);
   const [user, setUser] = useState(null);
   const [userName, setUserName] = useState(null);
   const location = useLocation();
   const isHome = location.pathname === "/";
-  // console.log(location.pathname);
   const root = document.querySelector("#root");
 
   if (!isHome) {
@@ -30,11 +24,9 @@ const Header = () => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log("👤 Текущий пользователь:", user);
         setUser(user);
         setUserName(user.displayName);
       } else {
-        console.log("🔒 Пользователь не вошел");
         setUser(null);
         setUserName(null);
       }
@@ -42,8 +34,6 @@ const Header = () => {
 
     return () => unsubscribe();
   }, []);
-  console.log("USer", user);
-  console.log("USerNAme", userName);
 
   return (
     <>
@@ -57,7 +47,7 @@ const Header = () => {
             <div className={css.headerList}>
               <NavLink to="/">Home</NavLink>
               <NavLink to="/nannies">Nannies</NavLink>
-              {user && <NavLink to="favorites">Favorites</NavLink>}
+              {user && <NavLink to="/favorites">Favorites</NavLink>}
             </div>
 
             {!user ? (
@@ -102,10 +92,6 @@ const Header = () => {
           </nav>
         </div>
       </header>
-      <Modal isOpen={typeModal !== null} onClose={handleClose}>
-        {typeModal === "login" && <LoginForm onClose={handleClose} />}
-        {typeModal === "register" && <RegisterForm onClose={handleClose} />}
-      </Modal>
     </>
   );
 };

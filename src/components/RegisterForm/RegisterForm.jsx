@@ -6,9 +6,11 @@ import { FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
 import { useState } from "react";
 import { register } from "../../js/register";
+import { useModal } from "../../js/ModalContext";
 
-const RegisterForm = ({ onClose }) => {
+const RegisterForm = () => {
   const [openEye, setOpenEye] = useState(false);
+  const { handleClose } = useModal();
 
   const initialValues = {
     userName: "",
@@ -28,20 +30,18 @@ const RegisterForm = ({ onClose }) => {
   });
 
   const handleSubmit = async (values, actions) => {
-    // console.log(values);
     try {
       await register(values.userName, values.email, values.password);
       actions.resetForm();
-      onClose();
+      handleClose();
     } catch (error) {
-      // console.error(error);
       actions.setStatus(error.message);
     }
   };
   return (
     <div className={css.registr}>
       <div className={css.btnCloseModal}>
-        <button className={css.svgClose} onClick={onClose}>
+        <button className={css.svgClose} onClick={handleClose}>
           <IoMdClose className={css.btnCloseIcon} />
         </button>
       </div>

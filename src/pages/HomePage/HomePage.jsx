@@ -1,6 +1,7 @@
 import css from "./HomePage.module.css";
 import { MdArrowOutward } from "react-icons/md";
 import { IoMdCheckmark } from "react-icons/io";
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
   return (
@@ -10,13 +11,10 @@ const HomePage = () => {
         <h2 className={css.subtitle}>
           Find Babysitters Online for All Occasions
         </h2>
-        <button className={css.btnNanny}>
+        <NavLink to="/nannies" className={css.btnNanny}>
           Get started <MdArrowOutward className={css.iconArrow} />
-        </button>
+        </NavLink>
       </div>
-      {/* <button className={css.btnNanny}>
-        Get started <MdArrowOutward className={css.iconArrow} />
-      </button> */}
 
       <div className={css.wrappInfo}>
         <div className={css.wrappIconCheckMark}>

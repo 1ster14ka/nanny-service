@@ -6,8 +6,10 @@ import { FaRegEye } from "react-icons/fa";
 import * as Yup from "yup";
 import { useState } from "react";
 import { login } from "../../js/login";
+import { useModal } from "../../js/ModalContext";
 
-const LoginForm = ({ onClose }) => {
+const LoginForm = () => {
+  const { handleClose } = useModal();
   const [openEye, setOpenEye] = useState(false);
   const initialValues = {
     email: "",
@@ -25,18 +27,15 @@ const LoginForm = ({ onClose }) => {
     try {
       await login(values.email, values.password);
       actions.resetForm();
-      onClose();
+      handleClose();
     } catch (error) {
       actions.setStatus("Invalid email or password.");
     }
-    // console.log(values.email);
-    // login(values.email, values.password);
-    // actions.resetForm();
   };
   return (
     <div className="login">
       <div className={css.btnCloseModal}>
-        <button className={css.svgClose} onClick={onClose}>
+        <button className={css.svgClose} onClick={handleClose}>
           <IoMdClose className={css.btnCloseIcon} />
         </button>
       </div>

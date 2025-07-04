@@ -82,11 +82,6 @@ const fetchNannies = async (order, lastValue = null) => {
       const data = childSnapshot.val();
 
       if (
-        (order === "lt-10" || order === "gt-10") &&
-        typeof data.sort_price !== "number"
-      )
-        return;
-      if (
         (order === "popular" || order === "not-popular") &&
         typeof data.sort_rating !== "string"
       )
@@ -97,11 +92,6 @@ const fetchNannies = async (order, lastValue = null) => {
         ...data,
       });
     });
-
-    // console.log(
-    //   "Nannies missing price_per_hour:",
-    //   result.filter((n) => typeof n.price_per_hour !== "number")
-    // );
 
     const data = needsReverse ? result.reverse() : result;
 

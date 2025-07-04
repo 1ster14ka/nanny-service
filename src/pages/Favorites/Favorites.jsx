@@ -40,28 +40,51 @@ const Favorites = () => {
 
     switch (selected) {
       case "lt-10":
-        filtered = filtered.filter((n) => n.price_per_hour < 10);
+        filtered = filtered.filter((n) => parseFloat(n.price_per_hour) < 100);
         break;
       case "gt-10":
-        filtered = filtered.filter((n) => n.price_per_hour >= 10);
+        filtered = filtered.filter((n) => parseFloat(n.price_per_hour) >= 1);
         break;
       case "popular":
-        filtered = filtered.filter((n) => n.rating >= 4);
+        filtered = filtered.filter((n) => parseFloat(n.rating) >= 1);
         break;
       case "not-popular":
-        filtered = filtered.filter((n) => n.rating < 4);
+        filtered = filtered.filter((n) => parseFloat(n.rating) < 5);
         break;
       case "all":
+      case "a-z":
+      case "z-a":
       default:
         break;
     }
 
-    if (selected === "a-z") {
-      filtered.sort((a, b) => a.name.localeCompare(b.name));
-    } else if (selected === "z-a") {
-      filtered.sort((a, b) => b.name.localeCompare(a.name));
-    } else {
-      filtered.sort((a, b) => a.name.localeCompare(b.name));
+    switch (selected) {
+      case "a-z":
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+        break;
+      case "z-a":
+        filtered.sort((a, b) => b.name.localeCompare(a.name));
+        break;
+      case "lt-10":
+        filtered.sort(
+          (a, b) => parseFloat(a.price_per_hour) - parseFloat(b.price_per_hour)
+        );
+        break;
+      case "gt-10":
+        filtered.sort(
+          (a, b) => parseFloat(b.price_per_hour) - parseFloat(a.price_per_hour)
+        );
+        break;
+      case "popular":
+        filtered.sort((a, b) => parseFloat(b.rating) - parseFloat(a.rating));
+        break;
+      case "not-popular":
+        filtered.sort((a, b) => parseFloat(a.rating) - parseFloat(b.rating));
+        break;
+      case "all":
+      default:
+        filtered.sort((a, b) => a.name.localeCompare(b.name));
+        break;
     }
 
     return filtered;
@@ -72,6 +95,10 @@ const Favorites = () => {
   const handleLoadMore = () => {
     setVisibleCount((prev) => prev + 3);
   };
+
+  useEffect(() => {
+    setVisibleCount(3);
+  }, [selected]);
 
   return (
     <div className={css.container}>
@@ -220,11 +247,7 @@ const Favorites = () => {
                       onClick={() => {
                         if (user) {
                           setNanniesInfo([avatar_url, name]);
-                          handleOpen("appointment", [
-                            avatar_url,
-                            name,
-                            reviews,
-                          ]);
+                          handleOpen("appointment", [avatar_url, name]);
                         } else {
                           handleOpen("login");
                         }

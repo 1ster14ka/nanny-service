@@ -1,12 +1,63 @@
-# React + Vite
+Nanny Services 👶
+This is a web application for finding and hiring nannies. Users can browse nanny profiles, filter them, add favorites, and book nanny services.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Features:
+User registration and login
 
-Currently, two official plugins are available:
+Nanny list with filtering options
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Detailed nanny profiles
 
-## Expanding the ESLint configuration
+Favorites system (add/remove nannies)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Booking request form for nanny services
+
+Reviews and ratings
+
+Infinite scroll for loading more profiles
+
+🛠 Technologies Used:
+React
+
+React Icons
+
+Firebase Authentication
+
+Firebase Realtime Database
+
+Formik + Yup
+
+CSS Modules
+
+📦 Installation:
+Clone the repository:
+
+bash
+Копировать
+Редактировать
+git clone https://github.com/1ster14ka/nanny-service.git
+Install dependencies:
+
+nginx
+Копировать
+Редактировать
+npm install
+Configure your firebase.js file with your Firebase keys.
+
+Start the project:
+
+sql
+Копировать
+Редактировать
+npm start
+🔐 Firebase Setup:
+Enable Email/Password in Firebase Authentication.
+
+Set up Realtime Database and add security rules.
+
+💡 Future Improvements:
+Real-time chat with nannies
+
+User-submitted reviews
+
+Advanced search filters

@@ -42,6 +42,11 @@
   align-items: center;
   justify-content: center;
   gap: 5px;
+  transition: color ease 0.3s;
+}
+
+.btnNanny:hover {
+  color: #0957c3;
 }
 
 .wrappInfo {

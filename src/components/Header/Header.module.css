@@ -20,8 +20,45 @@
   gap: 20px;
   padding: 15px;
 }
+
+.activeLink {
+  position: relative;
+  color: #0957c3;
+  transition: color 0.3s ease;
+}
+
+.activeLink::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  transform: translateX(-50%);
+  width: 6px;
+  height: 6px;
+  background-color: #0957c3;
+  border-radius: 50%;
+}
+.favorites {
+  transition: color 0.3s ease;
+}
+
+.favorites:hover {
+  color: #0957c3;
+}
 .logo {
   display: none;
+}
+.home {
+  transition: color 0.3s ease;
+}
+.home:hover {
+  color: #0957c3;
+}
+.nannies {
+  transition: color 0.3s ease;
+}
+.nannies:hover {
+  color: #0957c3;
 }
 
 .navigation {
@@ -54,10 +91,15 @@
   width: 100px;
   border: 1px solid rgba(251, 251, 251, 0.4);
   background-color: transparent;
+  transition: background-color ease 0.3s;
+}
+.btnLogin:hover {
+  background-color: #f03f3b;
 }
 .btnRegister {
   background: #f03f3b;
   border: 1px solid rgba(251, 251, 251, 0.4);
+  transition: background-color ease 0.3s;
 }
 
 .btnRegister:hover {
@@ -156,6 +198,11 @@
   border: 1px solid rgba(251, 251, 251, 0.4);
   border-radius: 30px;
   padding: 14px 39px;
+  transition: background-color ease 0.3s;
+}
+
+.btnUser:hover {
+  background-color: #f03f3b;
 }
 @media screen and (min-width: 768px) {
   .header {
@@ -180,6 +227,10 @@
     font-size: 18px;
     line-height: 117%;
     letter-spacing: -0.02em;
+    transition: color 0.3s ease;
+  }
+  .logo:hover {
+    color: #0957c3;
   }
 }
 

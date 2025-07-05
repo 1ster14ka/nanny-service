@@ -49,7 +49,7 @@
 
 .formContainer {
   padding: 20px;
-  background: white;
+  background: #f0f0f0;
   border-radius: 12px;
   max-width: 500px;
   margin: auto;
@@ -65,13 +65,20 @@
   flex-direction: column;
   gap: 10px;
 }
+.watchIcon {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  fill: black;
+}
 
 .formInput {
   border: 1px solid rgba(17, 16, 28, 0.1);
   border-radius: 12px;
-  /* padding: 16px 155px 16px 18px; */
   padding-left: 18px;
-  width: 232px;
+  width: 200px;
   height: 40px;
   font-weight: 400;
   font-size: 16px;
@@ -146,11 +153,12 @@
 
 .submitBtn {
   padding: 10px;
-  background: #5e60ce;
+  background: #f03f3b;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  border-radius: 30px;
 }
 
 @media (min-width: 768px) {
@@ -170,7 +178,53 @@
     font-size: 16px;
     margin-bottom: 40px;
   }
-  .wrappNany {
-    margin-bottom: 40px;
-  }
+}
+
+.customTimePicker {
+  position: relative;
+}
+
+.timeDropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+}
+
+.timeTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: #11101c;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.timeList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.timeItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 125%;
+  text-align: center;
+  color: rgba(17, 16, 28, 0.3);
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.timeItem:hover {
+  background: #f0f0f0;
+  color: #11101c;
 }

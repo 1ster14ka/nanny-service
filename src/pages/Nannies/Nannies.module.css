@@ -91,6 +91,7 @@ ul.listNanny {
   text-decoration: underline;
   text-decoration-skip-ink: none;
   color: #11101c;
+  display: flex;
 }
 
 .wrappImg {
@@ -213,10 +214,7 @@ ul.listNanny {
     width: 100%;
     max-width: 200px;
   }
-  .imgNanny {
-    /* min-width: 200px;
-    max-width: 200px; */
-  }
+
   .wrappCharacteristicNanny {
     flex-direction: row;
     flex-wrap: wrap;

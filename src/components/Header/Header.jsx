@@ -45,51 +45,73 @@ const Header = () => {
 
           <nav className={css.navigation}>
             <div className={css.headerList}>
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/nannies">Nannies</NavLink>
-              {user && <NavLink to="/favorites">Favorites</NavLink>}
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `${css.home} ${isActive ? css.activeLink : ""}`
+                }
+              >
+                Home
+              </NavLink>
+              <NavLink
+                to="/nannies"
+                className={({ isActive }) =>
+                  `${css.nannies} ${isActive ? css.activeLink : ""}`
+                }
+              >
+                Nannies
+              </NavLink>
+              {user && (
+                <NavLink
+                  to="/favorites"
+                  className={({ isActive }) =>
+                    `${css.favorites} ${isActive ? css.activeLink : ""}`
+                  }
+                >
+                  Favorites
+                </NavLink>
+              )}
             </div>
-
-            {!user ? (
-              <ul className={`${css.headerList} ${css.registration}`}>
-                <li>
-                  <button
-                    className={css.btnLogin}
-                    type="button"
-                    onClick={() => {
-                      handleOpen("login");
-                    }}
-                  >
-                    Log In
-                  </button>
-                </li>
-                <li>
-                  <button
-                    className={css.btnRegister}
-                    onClick={() => {
-                      handleOpen("register");
-                    }}
-                  >
-                    Registartion
-                  </button>
-                </li>
-              </ul>
-            ) : (
-              <ul className={css.listUser}>
-                <li className={css.itemUser}>
-                  <div className={css.wrappUser}>
-                    <FaUserAlt className={css.iconUser} />
-                  </div>
-                  <p className={css.userName}>{userName}</p>
-                </li>
-                <li className={css.itemUser}>
-                  <button onClick={logout} className={css.btnUser}>
-                    Logout
-                  </button>
-                </li>
-              </ul>
-            )}
           </nav>
+          {!user ? (
+            <ul className={`${css.headerList} ${css.registration}`}>
+              <li>
+                <button
+                  className={css.btnLogin}
+                  type="button"
+                  onClick={() => {
+                    handleOpen("login");
+                  }}
+                >
+                  Log In
+                </button>
+              </li>
+              <li>
+                <button
+                  className={css.btnRegister}
+                  onClick={() => {
+                    handleOpen("register");
+                  }}
+                >
+                  Registartion
+                </button>
+              </li>
+            </ul>
+          ) : (
+            <ul className={css.listUser}>
+              <li className={css.itemUser}>
+                <div className={css.wrappUser}>
+                  <FaUserAlt className={css.iconUser} />
+                </div>
+                <p className={css.userName}>{userName}</p>
+              </li>
+              <li className={css.itemUser}>
+                <button onClick={logout} className={css.btnUser}>
+                  Logout
+                </button>
+              </li>
+            </ul>
+          )}
         </div>
       </header>
     </>

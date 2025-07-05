@@ -113,7 +113,6 @@ const fetchNannies = async (order, lastValue = null) => {
       lastValue: newLastValue,
     };
   } catch (e) {
-    console.error("Error fetching nannies:", e);
     return { data: [], lastValue: null };
   }
 };

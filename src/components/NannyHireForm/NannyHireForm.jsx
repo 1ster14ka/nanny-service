@@ -2,6 +2,60 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { IoMdClose } from "react-icons/io";
 import css from "./NannyHireForm.module.css";
+import { useState } from "react";
+import { MdOutlineWatchLater } from "react-icons/md";
+import { toast } from "react-toastify";
+
+const timeOptions = [
+  "00:00",
+  "00:30",
+  "01:00",
+  "01:30",
+  "02:00",
+  "02:30",
+  "03:00",
+  "03:30",
+  "04:00",
+  "04:30",
+  "05:00",
+  "05:30",
+  "06:00",
+  "06:30",
+  "07:00",
+  "07:30",
+  "08:00",
+  "08:30",
+  "09:00",
+  "09:30",
+  "10:00",
+  "10:30",
+  "11:00",
+  "11:30",
+  "12:00",
+  "12:30",
+  "13:00",
+  "13:30",
+  "14:00",
+  "14:30",
+  "15:00",
+  "15:30",
+  "16:00",
+  "16:30",
+  "17:00",
+  "17:30",
+  "18:00",
+  "18:30",
+  "19:00",
+  "19:30",
+  "20:00",
+  "20:30",
+  "21:00",
+  "21:30",
+  "22:00",
+  "22:30",
+  "23:00",
+  "23:30",
+];
 
 const validationSchema = Yup.object({
   address: Yup.string().required("Required"),
@@ -16,7 +70,6 @@ const validationSchema = Yup.object({
   email: Yup.string().email("Invalid email").required("Required"),
   parentName: Yup.string().required("Required"),
   comment: Yup.string().max(300, "Too long"),
-  meetingTime: Yup.string().required("Select meeting time"),
 });
 
 const initialValues = {
@@ -27,14 +80,17 @@ const initialValues = {
   email: "",
   parentName: "",
   comment: "",
-  meetingTime: "",
 };
 
 const NannyHireForm = ({ naniesInfo = [], onClose }) => {
-  console.log("YEs");
-
+  const [showTimePicker, setShowTimePicker] = useState(false);
+  const [selectedTime, setSelectedTime] = useState("");
   const handleSubmit = (values, { resetForm }) => {
-    console.log("Form values:", values);
+    toast.success(
+      `Appointment with ${naniesInfo[1] || "nanny"} at ${
+        values.time
+      } confirmed!`
+    );
     resetForm();
     onClose();
   };
@@ -104,11 +160,41 @@ const NannyHireForm = ({ naniesInfo = [], onClose }) => {
                   )}
                 </div>
                 <div className={css.fieldWrapper}>
-                  <Field
-                    name="time"
-                    placeholder="00:00"
-                    className={css.formInput}
-                  />
+                  <Field name="time">
+                    {({ field, form }) => (
+                      <div className={css.customTimePicker}>
+                        <input
+                          type="text"
+                          placeholder="00:00"
+                          value={selectedTime || field.value}
+                          readOnly
+                          onClick={() => setShowTimePicker(!showTimePicker)}
+                          className={css.formInput}
+                        />
+                        <MdOutlineWatchLater className={css.watchIcon} />
+                        {showTimePicker && (
+                          <div className={css.timeDropdown}>
+                            <p className={css.timeTitle}>Meeting time</p>
+                            <ul className={css.timeList}>
+                              {timeOptions.map((time) => (
+                                <li
+                                  key={time}
+                                  className={css.timeItem}
+                                  onClick={() => {
+                                    form.setFieldValue("time", time);
+                                    setSelectedTime(time);
+                                    setShowTimePicker(false);
+                                  }}
+                                >
+                                  {time}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </Field>
                   {touched.time && errors.time && (
                     <div className={css.error}>{errors.time}</div>
                   )}
@@ -144,7 +230,7 @@ const NannyHireForm = ({ naniesInfo = [], onClose }) => {
               )}
 
               <button type="submit" className={css.submitBtn}>
-                Send Request
+                Send
               </button>
             </Form>
           )}

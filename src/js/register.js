@@ -11,7 +11,6 @@ async function register(name, email, password) {
       password
     );
     const user = userCredential.user;
-    console.log("Register", user);
 
     await set(ref(db, "users/" + user.uid), {
       name,
